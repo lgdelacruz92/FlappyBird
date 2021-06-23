@@ -1,0 +1,7 @@
+src/__pycache__/__init__.cpython-39.pyc
+src/player/__pycache__/__init__.cpython-39.pyc
+src/player/__pycache__/bird.cpython-39.pyc
+.*.pyc
+.*__pycache*
+*__pycache*
+*.pyc*
