@@ -1,5 +1,7 @@
 import pygame
+
 from src.player.bird import Bird
+from game import Game
 
 pygame.init()
 
@@ -12,21 +14,19 @@ SCALE = 1
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Initialize the global game
-GAME = {
-    'pygame': pygame,
-    'scale': SCALE,
-    'screen': screen
-}
+GAME = Game(
+    pygame=pygame,
+    scale=SCALE,
+    screen=screen)
 
-
+# Set up bird
 pygame.display.set_caption('Bird')
-player = Bird(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, GAME)
-
+bird = Bird(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, GAME)
 
 run = True
 while run:
 
-    player.draw()
+    bird.draw()
 
     for event in pygame.event.get():
         # quit game

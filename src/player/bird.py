@@ -1,22 +1,23 @@
 import pygame
 
+
 class Bird(pygame.sprite.Sprite):
     def __init__(self, x, y, game):
         # Global game object
         self.game = game
 
         # pygame
-        pygame = game['pygame']
+        pygame = game.pygame
         pygame.sprite.Sprite.__init__(self)
 
         # load the bird img
         img = pygame.image.load('img/player/Idle/bird.png')
 
         # get global game scale
-        scale = game['scale']
+        scale = game.scale
 
         # get global game scren
-        self.screen = game['screen']
+        self.screen = game.screen
 
         # add image
         self.image = pygame.transform.scale(
