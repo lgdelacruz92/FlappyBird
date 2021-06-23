@@ -1,0 +1,8 @@
+{
+    "version": "2.0.0",
+    "tasks": [{
+        "label": "Pytest",
+        "command": "pytest ${workspaceFolder}/tests/test_setup.py ${file}",
+        "type": "shell"
+    }]
+}
