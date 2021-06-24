@@ -1,17 +1,24 @@
-import unittest
-
-from game import Game
 from src.player.bird import Bird
+from utils.config_validator import validate_config
+import unittest
+import json
 
 
 class BirdTest(unittest.TestCase):
-    def test_bird_falling(self):
+    def test_bird_falling_1(self):
+        '''
+        Tests if missing any parameters
+        '''
+        with self.assertRaises(Exception):
+            Bird()
 
-        # on x amount of updates bird should have a positive velocity
-        b.update()
-        b.update()
+        with self.assertRaises(Exception):
+            Bird(2)
 
-        self.assertTrue(b.velocity > 0)
+        with self.assertRaises(Exception):
+            Bird(2, 3)
+
+        Bird(2, 3, {})
 
 
 if __name__ == '__main__':
