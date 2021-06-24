@@ -1,3 +1,4 @@
 {
-    "birdImgUrl": "img/player/Idle/bird.png"
+    "birdImgUrl": "img/player/Idle/bird.png",
+    "gravity": 1
 }
