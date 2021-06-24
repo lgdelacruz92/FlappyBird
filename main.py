@@ -1,7 +1,12 @@
 import pygame
 
-from src.player.bird import Bird
+from src.player.bird_renderer import BirdRenderer
 from game import Game
+import json
+
+# Get configuration
+with open('config.json', 'r') as config_file:
+    config = json.loads(config_file.read())
 
 pygame.init()
 
@@ -17,11 +22,13 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 GAME = Game(
     pygame=pygame,
     scale=SCALE,
-    screen=screen)
+    screen=screen,
+    config=config
+    )
 
 # Set up bird
 pygame.display.set_caption('Bird')
-bird = Bird(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, GAME)
+bird = BirdRenderer(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, GAME)
 
 run = True
 while run:
