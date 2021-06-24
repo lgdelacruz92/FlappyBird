@@ -9,7 +9,7 @@ class Bird:
         self.y = y
         self.v = 0
         self.f = 0
-        self.g = config['gravity']
+        self.g = config.gravity
 
     def update(self):
         self.g += self.f

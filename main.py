@@ -3,12 +3,13 @@ import pygame
 from src.player.bird_renderer import BirdRenderer
 from game import Game
 import json
-from utils.config_validator import validate_config
+from utils.config import Config
 
+config = None
 # Get configuration
 with open('config.json', 'r') as config_file:
-    config = json.loads(config_file.read())
-    validate_config(config)
+    config_json = json.loads(config_file.read())
+    config = Config(config_json)
 
 pygame.init()
 

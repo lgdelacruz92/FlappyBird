@@ -11,7 +11,7 @@ class BirdRenderer(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
         # load the bird img
-        birdImg = game.config['birdImgUrl']
+        birdImg = game.config.birdImgUrl
         img = pygame.image.load(birdImg)
 
         # get global game scale
