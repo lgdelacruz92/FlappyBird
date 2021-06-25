@@ -39,12 +39,12 @@ GAME = Game(
 # Set up bird
 pygame.display.set_caption('Bird')
 bird_renderer = BirdRenderer(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, GAME)
-bird = Bird(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+bird = Bird(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, config)
 
 run = True
 while run:
     screen.fill(game_colors.black)
-    bird.add_force(config.gravity)
+    bird.add_force(0, config.gravity)
     bird.update()
     bird_renderer.draw(bird)
 
@@ -56,7 +56,7 @@ while run:
             if event.key == pygame.K_q or event.key == pygame.K_ESCAPE:
                 run = False
             elif event.key == pygame.K_SPACE:
-                bird.add_force(config.force_up)
+                bird.add_force(config.force_up, 0)
 
     pygame.display.update()
 

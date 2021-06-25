@@ -9,3 +9,4 @@ class Config:
         self.birdImgUrl = config_json['birdImgUrl']
         self.gravity = config_json['gravity']
         self.force_up = config_json['force_up']
+        self.vlimit = config_json['vlimit']
