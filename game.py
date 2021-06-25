@@ -12,4 +12,3 @@ class Game:
         self.screen = screen
         self.config = config
         self.game_colors = game_colors
-

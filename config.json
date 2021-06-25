@@ -1,4 +1,5 @@
 {
     "birdImgUrl": "img/player/Idle/bird.png",
-    "gravity": 0.01
+    "gravity": 0.30,
+    "force_up": -12
 }

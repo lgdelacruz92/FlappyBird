@@ -17,6 +17,10 @@ class TestConfig(unittest.TestCase):
             Config(config_json)
 
         config_json['gravity'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+        config_json['force_up'] = 1
         Config(config_json)
 
 
