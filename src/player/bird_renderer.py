@@ -26,7 +26,7 @@ class BirdRenderer(pygame.sprite.Sprite):
 
         # add rect
         self.rect = self.image.get_rect()
-        self.rect.center = (x, y)
 
-    def draw(self):
+    def draw(self, bird):
+        self.rect.center = (bird.x, bird.y)
         self.screen.blit(self.image, self.rect)

@@ -8,3 +8,8 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+
+class GameColors:
+    def __init__(self):
+        self.black = (0, 0, 0)
