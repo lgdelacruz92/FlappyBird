@@ -25,6 +25,10 @@ class TestConfig(unittest.TestCase):
             Config(config_json)
 
         config_json['vlimit'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+        
+        config_json['scale'] = 1
         Config(config_json)
 
 

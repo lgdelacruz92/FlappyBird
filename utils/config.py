@@ -1,6 +1,3 @@
-import json
-
-
 class Config:
     def __init__(self, config_json):
         self.validate_config(config_json)
@@ -10,3 +7,4 @@ class Config:
         self.gravity = config_json['gravity']
         self.force_up = config_json['force_up']
         self.vlimit = config_json['vlimit']
+        self.scale = config_json['scale']

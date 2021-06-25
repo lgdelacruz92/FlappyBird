@@ -2,5 +2,6 @@
     "birdImgUrl": "img/player/Idle/bird.png",
     "gravity": 0.30,
     "force_up": -12,
-    "vlimit": 1
+    "vlimit": 1,
+    "scale": 3
 }

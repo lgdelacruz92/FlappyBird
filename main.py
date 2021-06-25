@@ -22,7 +22,6 @@ game_colors = GameColors()
 # Globals
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = int(SCREEN_WIDTH * 0.8)
-SCALE = 1
 
 # Set screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -30,10 +29,10 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 # Initialize the global game
 GAME = Game(
     pygame=pygame,
-    scale=SCALE,
+    scale=3,
     screen=screen,
     config=config,
-    game_colors=game_colors
+    game_colors=game_colors,
     )
 
 # Set up bird
