@@ -2,7 +2,7 @@ import pygame
 
 
 class BirdRenderer(pygame.sprite.Sprite):
-    def __init__(self, x, y, game):
+    def __init__(self, game):
         # Global game object
         self.game = game
 
@@ -21,12 +21,15 @@ class BirdRenderer(pygame.sprite.Sprite):
         self.screen = game.screen
 
         # add image
-        self.image = pygame.transform.scale(
+        self.falling_image = pygame.transform.scale(
             img, (int(img.get_width() * scale), int(img.get_height() * scale)))
 
         # add rect
-        self.rect = self.image.get_rect()
+        self.rect = self.falling_image.get_rect()
+    
+    def draw_falling(self):
+        self.screen.blit(self.falling_image, self.rect)
 
     def draw(self, bird):
         self.rect.center = (bird.x, bird.y)
-        self.screen.blit(self.image, self.rect)
+        self.draw_falling()

@@ -37,7 +37,7 @@ GAME = Game(
 
 # Set up bird
 pygame.display.set_caption('Bird')
-bird_renderer = BirdRenderer(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, GAME)
+bird_renderer = BirdRenderer(GAME)
 bird = Bird(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, config)
 
 run = True
