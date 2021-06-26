@@ -12,7 +12,7 @@ class BackgroundRenderer:
         self.background_nums = (self.width//self.sprite_width) + 1 
 
         self.background_imgs = []
-        self.background_img = self.game.spritesheet.image_at(self.sprite_rect, colorkey=-1)
+        self.background_img = self.game.spritesheet.image_at(self.sprite_rect)
         for i in range(self.background_nums):
             self.background_imgs.append(self.background_img)
         self.y = 0

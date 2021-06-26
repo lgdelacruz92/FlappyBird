@@ -7,7 +7,8 @@ import json
 from utils.config import Config
 from utils.colors import GameColors
 from utils.spritesheet import SpriteSheet
-from src.floor.floor_renderer import FloorRenderer
+from src.static.floor_renderer import FloorRenderer
+from src.static.background_renderer import BackgroundRenderer
 
 config = None
 # Get configuration
@@ -48,6 +49,9 @@ GAME = Game(
     clock=clock
     )
 
+# Setup background
+background_render = BackgroundRenderer(GAME)
+
 # Set up bird
 pygame.display.set_caption('Bird')
 bird_renderer = BirdRenderer(GAME)
@@ -83,8 +87,10 @@ while run:
                 if GAME.game_manager.status == IDLE:
                     GAME.game_manager.set_status(PLAYING)
 
+    # Background render
+    background_render.draw()
+
     # Draw bird
-    screen.fill(game_colors.black)
     bird_renderer.draw(bird)
 
     # Draw floor
