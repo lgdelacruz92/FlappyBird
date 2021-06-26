@@ -5,5 +5,6 @@
     "scale": 3,
     "flying_angle": 25,
     "frame_rate": 30,
-    "floor_pos": 585
+    "floor_pos": 585,
+    "background_pos": 0
 }

@@ -9,6 +9,10 @@ class TestConfig(unittest.TestCase):
         '''
 
         config_json = {}
+        config_json['background_pos'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
         with self.assertRaises(KeyError):
             Config(config_json)
 
