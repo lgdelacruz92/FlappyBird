@@ -61,6 +61,8 @@ while run:
                 run = False
             elif event.key == pygame.K_SPACE:
                 bird.add_force(config.force_up, 0)
+
+                # Bird should be floating if game hasn't started yet
                 if GAME.game_manager.status == IDLE:
                     GAME.game_manager.set_status(PLAYING)
 
