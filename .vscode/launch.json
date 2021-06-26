@@ -5,12 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Pytest current file",
-            "preLaunchTask": "Pytest",
+            "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "program": "${file}"
+            "program": "${file}",
+            "console": "integratedTerminal"
         }
     ]
 }

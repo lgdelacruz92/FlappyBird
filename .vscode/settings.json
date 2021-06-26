@@ -1,6 +1,3 @@
 {
-    "python.pythonPath": "../py3/bin/python3",
-    "python.linting.pylintEnabled": false,
-    "python.linting.enabled": true,
-    "python.linting.pylamaEnabled": true
+    "python.pythonPath": "/Users/ldelacruz/Documents/PyGames/py3/bin/python3"
 }

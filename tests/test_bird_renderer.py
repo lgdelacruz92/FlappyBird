@@ -11,7 +11,7 @@ class TestBirdRenderer(TestCase):
         game.pygame.image.load.return_value = surface_mock
         surface_mock.get_height.return_value = 1
         surface_mock.get_width.return_value = 1
-        game.scale = 1
+        game.config.scale = 1
 
         game.pygame.transform = Mock()
 
