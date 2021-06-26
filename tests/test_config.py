@@ -12,10 +12,6 @@ class TestConfig(unittest.TestCase):
         with self.assertRaises(KeyError):
             Config(config_json)
 
-        config_json['falling_bird_url'] = 'some_url'
-        with self.assertRaises(KeyError):
-            Config(config_json)
-
         config_json['gravity'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)
@@ -29,10 +25,6 @@ class TestConfig(unittest.TestCase):
             Config(config_json)
 
         config_json['scale'] = 1
-        with self.assertRaises(KeyError):
-            Config(config_json)
-
-        config_json['flying_bird_url'] = 'some_url'
         with self.assertRaises(KeyError):
             Config(config_json)
 
