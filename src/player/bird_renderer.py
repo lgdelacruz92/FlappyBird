@@ -47,16 +47,20 @@ class BirdRenderer(pygame.sprite.Sprite):
             bird_img = self.game.pygame.transform.rotate(bird_img, angle)
             self.bird_imgs.append(bird_img)
 
-    def draw_flying(self):
+    def draw_flying(self, bird):
         num_imgs = len(self.bird_imgs)
         if self.game.config.frame_rate == self.ticks:
             self.ticks = 0
-        if self.ticks % 3 == 0:
+        if self.ticks % 5 == 0 and self.flying:
             self.flap += 1
             self.flap %= num_imgs
+        else:
+            self.flap = 0
         self.ticks += 1
         bird_img = self.bird_imgs[self.flap]
-        self.screen.blit(bird_img, bird_img.get_rect())
+        rect = bird_img.get_rect()
+        new_rect = (bird.x, bird.y, rect.width, rect.height)
+        self.screen.blit(bird_img, new_rect)
 
     def draw(self, bird):
         if bird.v < 0:
@@ -66,4 +70,4 @@ class BirdRenderer(pygame.sprite.Sprite):
             self.flying = False
             self.load_images()
 
-        self.draw_flying()
+        self.draw_flying(bird)

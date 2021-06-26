@@ -1,10 +1,10 @@
 {
     "flying_bird_url": "img/player/flying/bird.png",
     "falling_bird_url": "img/player/Idle/bird.png",
-    "gravity": 0.5,
+    "gravity": 1.5,
     "force_up": -14,
     "vlimit": 1,
-    "scale": 2,
+    "scale": 3,
     "flying_angle": 25,
     "frame_rate": 30
 }
