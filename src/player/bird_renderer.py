@@ -18,7 +18,7 @@ class BirdRenderer(pygame.sprite.Sprite):
         flying_img = self.pygame.image.load(flying_bird_img)
 
         # get global game scale
-        scale = game.scale
+        scale = game.config.scale
 
         # get global game scren
         self.screen = game.screen
@@ -31,6 +31,9 @@ class BirdRenderer(pygame.sprite.Sprite):
 
         # add rect
         self.rect = self.falling_image.get_rect()
+
+        # old center
+        self.old_center = self.rect.center
 
         # Frame skip for wings
         self.frame_skip = 100
@@ -55,17 +58,10 @@ class BirdRenderer(pygame.sprite.Sprite):
 
     def draw(self, bird):
         self.rect.center = (bird.x, bird.y)
-        transformer = self.pygame.transform
+        self.old_center = self.rect.center
         if bird.v < 0:
-            if self.flying is False:
-                self.flying_image = transformer.rotate(self.flying_image, 90)
-                self.falling_image = transformer.rotate(self.falling_image, 90)
             self.flying = True
             self.draw_falling()
         else:
-            if self.flying is True:
-                self.flying_image = transformer.rotate(self.flying_image, -90)
-                self.falling_image = \
-                    transformer.rotate(self.falling_image, -90)
             self.flying = False
             self.draw_flying()

@@ -33,7 +33,6 @@ game_manager = GameManager()
 # Initialize the global game
 GAME = Game(
     pygame=pygame,
-    scale=3,
     screen=screen,
     config=config,
     game_colors=game_colors,
