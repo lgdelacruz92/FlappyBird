@@ -17,6 +17,5 @@ class Bird:
         self.g = 0
 
     def add_force(self, force, gravity):
-        if self.v > self.config.vlimit:
-            self.g += force
+        self.g += force
         self.g += gravity

@@ -5,10 +5,12 @@ class Game:
                  screen=None,
                  gravity=0.1,
                  config=None,
-                 game_colors=None
+                 game_colors=None,
+                 game_manager=None
                  ):
         self.pygame = pygame
         self.scale = scale
         self.screen = screen
         self.config = config
         self.game_colors = game_colors
+        self.game_manager = game_manager

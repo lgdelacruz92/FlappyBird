@@ -4,7 +4,7 @@ from unittest import TestCase
 
 
 class TestBirdRenderer(TestCase):
-    def test_bird_renderer_draw(self):
+    def test_bird_renderer_draw_1(self):
         '''
         Test that bird renderer flutters when velocity is up
         '''

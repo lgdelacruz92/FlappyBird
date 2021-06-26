@@ -80,31 +80,6 @@ class TestBird(unittest.TestCase):
         # y = 15
         self.assertEqual(bird.y, initial_bird_y + 15 * config.gravity)
 
-    def test_bird_no_lift_on_limit_velocity(self):
-        '''
-        Bird should not lift up when velocity is not below limit
-        '''
-        bird, config = self._make_bird()
-
-        bird.add_force(config.force_up, 0)
-        bird.update()
-        self.assertEqual(bird.v, 0)
-
-        bird.v = 0 # reset
-
-        # Pull gravity
-        bird.add_force(0, config.gravity)
-        bird.update()
-        bird.add_force(0, config.gravity)
-        bird.update()
-        bird.add_force(0, config.gravity)
-        bird.update()
-        bird.add_force(0, config.gravity)
-        bird.update()
-        bird.add_force(config.force_up, 0)
-        bird.update()
-        self.assertTrue(bird.v < 0)
-
     def test_bird_force_up(self):
         '''
         Tests that bird goes up on force
