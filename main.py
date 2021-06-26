@@ -86,6 +86,7 @@ while run:
                 # Bird should be floating if game hasn't started yet
                 if GAME.game_manager.status == IDLE:
                     GAME.game_manager.set_status(PLAYING)
+    screen.fill((84, 192, 201))
 
     # Background render
     background_render.draw()

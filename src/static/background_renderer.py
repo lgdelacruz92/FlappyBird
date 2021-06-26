@@ -15,7 +15,7 @@ class BackgroundRenderer:
         self.background_img = self.game.spritesheet.image_at(self.sprite_rect)
         for i in range(self.background_nums):
             self.background_imgs.append(self.background_img)
-        self.y = 0
+        self.y = self.game.config.background_pos
 
     def draw(self):
         for i in range(self.background_nums):
