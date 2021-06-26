@@ -4,6 +4,6 @@
     "gravity": 0.5,
     "force_up": -14,
     "vlimit": 1,
-    "scale": 0.7,
+    "scale": 2,
     "flying_angle": 25
 }

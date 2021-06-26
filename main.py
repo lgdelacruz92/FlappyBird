@@ -1,5 +1,4 @@
 import pygame
-
 from src.player.bird_renderer import BirdRenderer
 from src.player.bird import Bird
 from game import Game
@@ -7,6 +6,7 @@ from game_manager import GameManager, IDLE, PLAYING, GAME_OVER
 import json
 from utils.config import Config
 from utils.colors import GameColors
+from utils.spritesheet import SpriteSheet
 
 config = None
 # Get configuration
@@ -30,13 +30,17 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 # Initializse game manager
 game_manager = GameManager()
 
+# Initialize Spritesheet
+spritesheet = SpriteSheet('img/spritesheet.png')
+
 # Initialize the global game
 GAME = Game(
     pygame=pygame,
     screen=screen,
     config=config,
     game_colors=game_colors,
-    game_manager=game_manager
+    game_manager=game_manager,
+    spritesheet=spritesheet
     )
 
 # Set up bird
