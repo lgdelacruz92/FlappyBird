@@ -6,7 +6,8 @@ class Game:
                  config=None,
                  game_colors=None,
                  game_manager=None,
-                 spritesheet=None
+                 spritesheet=None,
+                 clock=None
                  ):
         self.pygame = pygame
         self.screen = screen
@@ -14,3 +15,4 @@ class Game:
         self.game_colors = game_colors
         self.game_manager = game_manager
         self.spritesheet = spritesheet
+        self.clock = clock

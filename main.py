@@ -33,6 +33,9 @@ game_manager = GameManager()
 # Initialize Spritesheet
 spritesheet = SpriteSheet('img/spritesheet.png')
 
+# Initialize clock
+clock = pygame.time.Clock()
+
 # Initialize the global game
 GAME = Game(
     pygame=pygame,
@@ -40,7 +43,8 @@ GAME = Game(
     config=config,
     game_colors=game_colors,
     game_manager=game_manager,
-    spritesheet=spritesheet
+    spritesheet=spritesheet,
+    clock=clock
     )
 
 # Set up bird
@@ -51,6 +55,8 @@ bird = Bird(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, config)
 run = True
 
 while run:
+    GAME.clock.tick(GAME.config.frame_rate)
+
     if GAME.game_manager.status == PLAYING:
         bird.add_force(0, config.gravity)
         bird.update()
