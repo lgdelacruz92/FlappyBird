@@ -4,11 +4,8 @@ from unittest import TestCase
 
 
 class TestBirdRenderer(TestCase):
-    def test_bird_renderer_draw_1(self):
-        '''
-        Test that bird renderer flutters when velocity is up
-        '''
-        # Mock dependencies
+    def _make_bird_renderer(self):
+       # Mock dependencies
         game = Mock()
         surface_mock = Mock()
         game.pygame.image.load.return_value = surface_mock
@@ -19,8 +16,36 @@ class TestBirdRenderer(TestCase):
         # Mock bird
         bird = Mock()
 
-        bird_renderer = BirdRenderer(game)
+        return BirdRenderer(game) 
+
+    def test_bird_renderer_draw_1(self):
+        '''
+        Bird should use falling draw when falling
+        '''
+        bird_renderer = self._make_bird_renderer()
+
+        # Make bird
+        bird = Mock()
+        bird.v = 1
+
+        # Call draw
         bird_renderer.draw_falling = Mock()
         bird_renderer.draw(bird)
 
         self.assertEqual(bird_renderer.draw_falling.call_count, 1)
+
+    def test_bird_renderer_draw_2(self):
+        '''
+        Bird should use flying draw when flying
+        '''
+        bird_renderer = self._make_bird_renderer()
+
+        # Make bird
+        bird = Mock()
+        bird.v = -1
+
+        # Call draw
+        bird_renderer.draw_flying = Mock()
+        bird_renderer.draw(bird)
+
+        self.assertEqual(bird_renderer.draw_flying.call_count, 1)

@@ -12,7 +12,7 @@ class TestConfig(unittest.TestCase):
         with self.assertRaises(KeyError):
             Config(config_json)
 
-        config_json['birdImgUrl'] = 'some_url'
+        config_json['falling_bird_url'] = 'some_url'
         with self.assertRaises(KeyError):
             Config(config_json)
 
@@ -27,8 +27,12 @@ class TestConfig(unittest.TestCase):
         config_json['vlimit'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)
-        
+
         config_json['scale'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+        config_json['flying_bird_url'] = 'some_url'
         Config(config_json)
 
 

@@ -1,5 +1,6 @@
 {
-    "birdImgUrl": "img/player/Idle/bird.png",
+    "flying_bird_url": "img/player/flying/bird.png",
+    "falling_bird_url": "img/player/Idle/bird.png",
     "gravity": 0.5,
     "force_up": -14,
     "vlimit": 1,
