@@ -32,36 +32,15 @@ class BirdRenderer(pygame.sprite.Sprite):
         # add rect
         self.rect = self.falling_image.get_rect()
 
-        # old center
-        self.old_center = self.rect.center
-
-        # Frame skip for wings
-        self.frame_skip = 100
-        self.frame_skip_toggle = True
-        self.frame_skip_counter = 0
-
-        self.flying = False
 
     def draw_falling(self):
         self.screen.blit(self.falling_image, self.rect)
 
     def draw_flying(self):
-        if self.frame_skip_counter == self.frame_skip:
-            self.frame_skip_counter = 0
-            self.frame_skip_toggle = not self.frame_skip_toggle
-
-        if self.frame_skip_toggle == True:
-            self.screen.blit(self.flying_image, self.rect)
-        else:
-            self.draw_falling()
-        self.frame_skip_counter += 1
+        print('hello')
 
     def draw(self, bird):
-        self.rect.center = (bird.x, bird.y)
-        self.old_center = self.rect.center
         if bird.v < 0:
-            self.flying = True
             self.draw_falling()
         else:
-            self.flying = False
             self.draw_flying()
