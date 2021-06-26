@@ -11,3 +11,4 @@ class Config:
         self.scale = config_json['scale']
         self.flying_angle = config_json['flying_angle']
         self.frame_rate = config_json['frame_rate']
+        self.floor_pos = config_json['floor_pos']

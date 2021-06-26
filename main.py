@@ -7,6 +7,7 @@ import json
 from utils.config import Config
 from utils.colors import GameColors
 from utils.spritesheet import SpriteSheet
+from src.floor.floor_renderer import FloorRenderer
 
 config = None
 # Get configuration
@@ -52,10 +53,17 @@ pygame.display.set_caption('Bird')
 bird_renderer = BirdRenderer(GAME)
 bird = Bird(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, config)
 
+# Set up floor
+floor_renderer = FloorRenderer(GAME)
+
 run = True
 
 while run:
     GAME.clock.tick(GAME.config.frame_rate)
+
+    if bird.y >= GAME.config.floor_pos - 50:
+        bird.y = GAME.config.floor_pos - 50
+        GAME.game_manager.set_status(GAME_OVER)
 
     if GAME.game_manager.status == PLAYING:
         bird.add_force(0, config.gravity)
@@ -75,8 +83,12 @@ while run:
                 if GAME.game_manager.status == IDLE:
                     GAME.game_manager.set_status(PLAYING)
 
+    # Draw bird
     screen.fill(game_colors.black)
     bird_renderer.draw(bird)
+
+    # Draw floor
+    floor_renderer.draw()
 
     pygame.display.update()
 

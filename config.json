@@ -6,5 +6,6 @@
     "vlimit": 1,
     "scale": 3,
     "flying_angle": 25,
-    "frame_rate": 30
+    "frame_rate": 30,
+    "floor_pos": 585
 }

@@ -42,6 +42,10 @@ class TestConfig(unittest.TestCase):
             Config(config_json)
 
         config_json['frame_rate'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+        config_json['floor_pos'] = 1
         Config(config_json)
 
 
