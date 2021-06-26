@@ -8,7 +8,7 @@ class TestBirdRenderer(TestCase):
        # Mock dependencies
         game = Mock()
         surface_mock = Mock()
-        game.pygame.image.load.return_value = surface_mock
+        game.spritesheet.image_at.return_value = surface_mock
         surface_mock.get_height.return_value = 1
         surface_mock.get_width.return_value = 1
         game.config.scale = 1
@@ -47,7 +47,7 @@ class TestBirdRenderer(TestCase):
         bird.v = -1
 
         # Call draw
-        bird_renderer.draw_falling = Mock()
+        bird_renderer.draw_flying = Mock()
         bird_renderer.draw(bird)
 
-        self.assertEqual(bird_renderer.draw_falling.call_count, 1)
+        self.assertEqual(bird_renderer.draw_flying.call_count, 1)
