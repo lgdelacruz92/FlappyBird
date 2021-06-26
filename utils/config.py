@@ -10,3 +10,4 @@ class Config:
         self.vlimit = config_json['vlimit']
         self.scale = config_json['scale']
         self.flying_angle = config_json['flying_angle']
+        self.frame_rate = config_json['frame_rate']

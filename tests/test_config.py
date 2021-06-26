@@ -35,7 +35,13 @@ class TestConfig(unittest.TestCase):
         config_json['flying_bird_url'] = 'some_url'
         with self.assertRaises(KeyError):
             Config(config_json)
+
         config_json['flying_angle'] = 1
+
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+        config_json['frame_rate'] = 1
         Config(config_json)
 
 

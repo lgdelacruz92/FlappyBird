@@ -5,5 +5,6 @@
     "force_up": -14,
     "vlimit": 1,
     "scale": 2,
-    "flying_angle": 25
+    "flying_angle": 25,
+    "frame_rate": 30
 }
