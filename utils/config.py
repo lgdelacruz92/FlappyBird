@@ -9,3 +9,4 @@ class Config:
         self.force_up = config_json['force_up']
         self.vlimit = config_json['vlimit']
         self.scale = config_json['scale']
+        self.flying_angle = config_json['flying_angle']

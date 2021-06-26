@@ -13,6 +13,8 @@ class TestBirdRenderer(TestCase):
         surface_mock.get_width.return_value = 1
         game.scale = 1
 
+        game.pygame.transform = Mock()
+
         # Mock bird
         bird = Mock()
 
@@ -29,10 +31,10 @@ class TestBirdRenderer(TestCase):
         bird.v = 1
 
         # Call draw
-        bird_renderer.draw_falling = Mock()
+        bird_renderer.draw_flying = Mock()
         bird_renderer.draw(bird)
 
-        self.assertEqual(bird_renderer.draw_falling.call_count, 1)
+        self.assertEqual(bird_renderer.draw_flying.call_count, 1)
 
     def test_bird_renderer_draw_2(self):
         '''
@@ -45,7 +47,7 @@ class TestBirdRenderer(TestCase):
         bird.v = -1
 
         # Call draw
-        bird_renderer.draw_flying = Mock()
+        bird_renderer.draw_falling = Mock()
         bird_renderer.draw(bird)
 
-        self.assertEqual(bird_renderer.draw_flying.call_count, 1)
+        self.assertEqual(bird_renderer.draw_falling.call_count, 1)

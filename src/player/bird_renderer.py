@@ -7,15 +7,15 @@ class BirdRenderer(pygame.sprite.Sprite):
         self.game = game
 
         # pygame
-        pygame = game.pygame
-        pygame.sprite.Sprite.__init__(self)
+        self.pygame = game.pygame
+        self.pygame.sprite.Sprite.__init__(self)
 
         # load the bird img
         falling_bird_img = game.config.falling_bird_url
-        falling_img = pygame.image.load(falling_bird_img)
+        falling_img = self.pygame.image.load(falling_bird_img)
 
         flying_bird_img = game.config.flying_bird_url
-        flying_img = pygame.image.load(flying_bird_img)
+        flying_img = self.pygame.image.load(flying_bird_img)
 
         # get global game scale
         scale = game.scale
@@ -24,9 +24,9 @@ class BirdRenderer(pygame.sprite.Sprite):
         self.screen = game.screen
 
         # add image
-        self.falling_image = pygame.transform.scale(
+        self.falling_image = self.pygame.transform.scale(
             falling_img, (int(falling_img.get_width() * scale), int(falling_img.get_height() * scale)))
-        self.flying_image = pygame.transform.scale(
+        self.flying_image = self.pygame.transform.scale(
             flying_img, (int(flying_img.get_width() * scale), int(flying_img.get_height() * scale)))
 
         # add rect
@@ -36,6 +36,8 @@ class BirdRenderer(pygame.sprite.Sprite):
         self.frame_skip = 100
         self.frame_skip_toggle = True
         self.frame_skip_counter = 0
+
+        self.flying = False
 
     def draw_falling(self):
         self.screen.blit(self.falling_image, self.rect)
@@ -53,7 +55,17 @@ class BirdRenderer(pygame.sprite.Sprite):
 
     def draw(self, bird):
         self.rect.center = (bird.x, bird.y)
+        transformer = self.pygame.transform
         if bird.v < 0:
+            if self.flying is False:
+                self.flying_image = transformer.rotate(self.flying_image, 90)
+                self.falling_image = transformer.rotate(self.falling_image, 90)
+            self.flying = True
             self.draw_falling()
         else:
+            if self.flying is True:
+                self.flying_image = transformer.rotate(self.flying_image, -90)
+                self.falling_image = \
+                    transformer.rotate(self.falling_image, -90)
+            self.flying = False
             self.draw_flying()
