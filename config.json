@@ -1,10 +1,10 @@
 {
-    "gravity": 1.5,
-    "force_up": -14,
+    "gravity": 3,
+    "force_up": -30,
     "vlimit": 1,
     "scale": 3,
     "flying_angle": 25,
-    "frame_rate": 30,
+    "frame_rate": 60,
     "floor_pos": 1025,
     "background_pos": 770
 }
