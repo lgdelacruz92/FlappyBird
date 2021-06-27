@@ -55,7 +55,7 @@ background_render = BackgroundRenderer(GAME)
 # Set up bird
 pygame.display.set_caption('Bird')
 bird_renderer = BirdRenderer(GAME)
-bird = Bird(SCREEN_WIDTH * 0.20, SCREEN_HEIGHT/2, config)
+bird = Bird(SCREEN_WIDTH * 0.20, SCREEN_HEIGHT/2, GAME)
 
 # Set up floor
 floor_renderer = FloorRenderer(GAME)

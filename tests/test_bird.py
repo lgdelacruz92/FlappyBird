@@ -2,6 +2,7 @@ from src.player.bird import Bird
 from utils.config import Config
 import unittest
 import json
+from game import Game
 
 initial_bird_x = 0
 initial_bird_y = 0
@@ -13,7 +14,8 @@ class TestBird(unittest.TestCase):
         config = None
         with open('config.json', 'r') as config_file:
             config = Config(json.loads(config_file.read()))
-            bird = Bird(initial_bird_x, initial_bird_y, config)
+            game = Game(config=config)
+            bird = Bird(initial_bird_x, initial_bird_y, game)
         return (bird, config)
 
     def test_bird_initialization(self):
