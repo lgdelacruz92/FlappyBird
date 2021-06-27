@@ -13,7 +13,7 @@ class Bird:
         self.config = self.game.config
 
     def update(self):
-        dt = self.game.clock.tick(self.game.config.frame_rate)
+        dt = self.game.clock.get_time()
         self.v += self.g
         self.y += self.v * dt
         self.g = 0
