@@ -3,18 +3,19 @@ from utils.config import Config
 import unittest
 import json
 from game import Game
+from unittest.mock import Mock
 
 initial_bird_x = 0
 initial_bird_y = 0
 
 
 class TestBird(unittest.TestCase):
-    def _make_bird(self):
+    def _make_bird(self, clock=None):
         bird = None
         config = None
         with open('config.json', 'r') as config_file:
             config = Config(json.loads(config_file.read()))
-            game = Game(config=config)
+            game = Game(config=config, clock=clock)
             bird = Bird(initial_bird_x, initial_bird_y, game)
         return (bird, config)
 
@@ -37,7 +38,9 @@ class TestBird(unittest.TestCase):
         '''
         Tests that bird falls on updates
         '''
-        bird, config = self._make_bird()
+        clock = Mock()
+        clock.get_time.return_value = 1
+        bird, config = self._make_bird(clock)
         bird.add_force(0, config.gravity)
         bird.update()
         self.assertTrue(bird.v > 0)
@@ -46,10 +49,12 @@ class TestBird(unittest.TestCase):
         '''
         Tests that checks the fall rate is accurate
         '''
+        clock = Mock()
+        clock.get_time.return_value = 1
         # g = 1
         # v = 0
         # y = 0
-        bird, config = self._make_bird()
+        bird, config = self._make_bird(clock)
         self.assertEqual(bird.y, initial_bird_y)
 
         bird.add_force(0, config.gravity)
@@ -86,7 +91,9 @@ class TestBird(unittest.TestCase):
         '''
         Tests that bird goes up on force
         '''
-        bird, config = self._make_bird()
+        clock = Mock()
+        clock.get_time.return_value = 1
+        bird, config = self._make_bird(clock)
         bird.add_force(0, config.gravity)
         bird.update()
         bird.add_force(0, config.gravity)
