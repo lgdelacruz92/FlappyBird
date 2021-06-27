@@ -23,7 +23,7 @@ pygame.init()
 game_colors = GameColors()
 
 # Globals
-SCREEN_WIDTH = 800
+SCREEN_WIDTH = 1920
 SCREEN_HEIGHT = int(SCREEN_WIDTH * 0.8)
 
 # Set screen
