@@ -95,6 +95,7 @@ while run:
     bird_renderer.draw(bird)
 
     # Draw floor
+    floor_renderer.update()
     floor_renderer.draw()
 
     pygame.display.update()
