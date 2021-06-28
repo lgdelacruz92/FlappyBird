@@ -7,10 +7,16 @@ import json
 from utils.config import Config
 from utils.colors import GameColors
 from utils.spritesheet import SpriteSheet
-from src.static.floor_renderer import FloorRenderer
+from utils.make_floors import make_floors
+
 from src.static.background_renderer import BackgroundRenderer
+
 from src.pipe.pipe import Pipe
 from src.pipe.pipe_renderer import PipeRenderer
+
+from src.floor.floor import Floor
+from src.floor_manager.floor_manager import FloorManager
+from src.floor.floor_renderer import FloorRenderer
 
 config = None
 # Get configuration
@@ -60,7 +66,9 @@ bird_renderer = BirdRenderer(GAME)
 bird = Bird(SCREEN_WIDTH * 0.20, SCREEN_HEIGHT/2, GAME)
 
 # Set up floor
-floor_renderer = FloorRenderer(GAME)
+floors = make_floors(GAME)
+floor_manager = FloorManager(floors, GAME)
+floor_renderer = FloorRenderer(floor_manager, GAME)
 
 # Setup pipes
 pipe = Pipe(SCREEN_WIDTH - 100, SCREEN_HEIGHT/3, 26, 160, GAME)
@@ -105,7 +113,7 @@ while run:
     pipe_renderer.draw(pipe)
 
     # Draw floor
-    floor_renderer.update()
+    floor_manager.update()
     floor_renderer.draw()
 
     pygame.display.update()

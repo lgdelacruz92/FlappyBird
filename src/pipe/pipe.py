@@ -8,7 +8,8 @@ class Pipe:
         self.v = self.game.config.floor_rate
 
     def update(self):
-        self.x -= self.v
+        dt = self.game.clock.get_time()
+        self.x -= self.v * dt
         if self.x < -self.w * self.game.config.scale:
             self.x = self.game.screen.get_width() + 5
 

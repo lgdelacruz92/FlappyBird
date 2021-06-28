@@ -13,3 +13,5 @@ class Config:
         self.background_pos = config_json['background_pos']
         self.floor_rate = config_json['floor_rate']
         self.pipe_velocity = config_json['pipe_velocity']
+        self.sprite_floor_width = config_json['sprite_floor_width']
+        self.sprite_floor_height = config_json['sprite_floor_height']
