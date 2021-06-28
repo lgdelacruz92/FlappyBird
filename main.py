@@ -9,7 +9,7 @@ from utils.colors import GameColors
 from utils.spritesheet import SpriteSheet
 from utils.make_floors import make_floors
 
-from src.static.background_renderer import BackgroundRenderer
+from src.background.background_renderer import BackgroundRenderer
 
 from src.pipe.pipe import Pipe
 from src.pipe.pipe_renderer import PipeRenderer
