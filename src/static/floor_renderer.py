@@ -42,11 +42,11 @@ class FloorRenderer(pygame.sprite.Sprite):
             # upate position
             new_rect = (self.rects[self.floor_nums-1][0] + temp[2], temp[1], temp[2], temp[3])
             self.rects[self.floor_nums-1] = new_rect
-
+        floor_rate = self.game.config.floor_rate
         for i in range(self.floor_nums):
             height = self.sprite_rect[3]
             old_rect = self.rects[i]
-            new_rect = (old_rect[0]-1, old_rect[1], old_rect[2], old_rect[3])
+            new_rect = (old_rect[0]-floor_rate, old_rect[1], old_rect[2], old_rect[3])
             self.rects[i] = new_rect
 
     def draw(self):

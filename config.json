@@ -7,5 +7,6 @@
     "frame_rate": 30,
     "floor_pos": 1025,
     "background_pos": 770,
-    "floor_rate": 1
+    "floor_rate": 3,
+    "pipe_velocity": 1
 }

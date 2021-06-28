@@ -12,3 +12,4 @@ class Config:
         self.floor_pos = config_json['floor_pos']
         self.background_pos = config_json['background_pos']
         self.floor_rate = config_json['floor_rate']
+        self.pipe_velocity = config_json['pipe_velocity']

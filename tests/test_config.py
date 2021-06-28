@@ -9,6 +9,13 @@ class TestConfig(unittest.TestCase):
         '''
 
         config_json = {}
+
+
+        config_json['pipe_velocity'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
         config_json['floor_rate'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)
