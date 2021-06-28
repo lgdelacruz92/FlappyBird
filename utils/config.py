@@ -15,3 +15,5 @@ class Config:
         self.pipe_velocity = config_json['pipe_velocity']
         self.sprite_floor_width = config_json['sprite_floor_width']
         self.sprite_floor_height = config_json['sprite_floor_height']
+        self.sprite_background_width = config_json['sprite_background_width']
+        self.sprite_background_height = config_json['sprite_background_height']

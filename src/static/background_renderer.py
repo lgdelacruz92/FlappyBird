@@ -1,29 +1,17 @@
 class BackgroundRenderer:
-    def __init__(self, game):
+    def __init__(self, backgrounds, game):
 
         # Game global
         self.game = game
         self.width = game.screen.get_width()
         self.height = game.screen.get_height()
-        self.sprite_rect = (0, 1, 142, 255)
-        self.sprite_width = self.sprite_rect[2]
-
-        # The amount of floor drawings needed
-        self.background_nums = (self.width//self.sprite_width) + 1 
-
-        self.background_imgs = []
-        self.background_img = self.game.spritesheet.image_at(self.sprite_rect)
-        for i in range(self.background_nums):
-            self.background_imgs.append(self.background_img)
-        self.y = self.game.config.background_pos
+        sprite_width = game.config.sprite_background_width
+        sprite_height = game.config.sprite_background_height
+        self.sprite_rect = (0, 1, sprite_width, sprite_height)
+        self.background_img = game.spritesheet.image_at(self.sprite_rect, colorkey=(255, 255, 255))
+        self.backgrounds = backgrounds
 
     def draw(self):
-        for i in range(self.background_nums):
-            height = self.sprite_rect[3]
-            new_rect = (
-                i * self.sprite_width,
-                self.y,
-                self.sprite_width,
-                height
-            )
-            self.game.screen.blit(self.background_imgs[i], new_rect)
+        for background in self.backgrounds:
+            self.game.screen.blit(self.background_img, background.get_rect())
+
