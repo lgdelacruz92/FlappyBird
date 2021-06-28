@@ -9,6 +9,8 @@ from utils.colors import GameColors
 from utils.spritesheet import SpriteSheet
 from src.static.floor_renderer import FloorRenderer
 from src.static.background_renderer import BackgroundRenderer
+from src.pipe.pipe import Pipe
+from src.pipe.pipe_renderer import PipeRenderer
 
 config = None
 # Get configuration
@@ -60,6 +62,10 @@ bird = Bird(SCREEN_WIDTH * 0.20, SCREEN_HEIGHT/2, GAME)
 # Set up floor
 floor_renderer = FloorRenderer(GAME)
 
+# Setup pipes
+pipe = Pipe(SCREEN_WIDTH - 100, SCREEN_HEIGHT/3, 26, 160, GAME)
+pipe_renderer = PipeRenderer(GAME)
+
 run = True
 
 while run:
@@ -93,6 +99,10 @@ while run:
 
     # Draw bird
     bird_renderer.draw(bird)
+
+    # Draw pipe
+    pipe.update()
+    pipe_renderer.draw(pipe)
 
     # Draw floor
     floor_renderer.update()
