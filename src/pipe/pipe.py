@@ -5,3 +5,10 @@ class Pipe:
         self.y = y
         self.w = w
         self.h = h
+        self.v = self.game.config.pipe_velocity
+
+    def update(self):
+        self.x -= self.v
+
+    def get_rect(self):
+        return (self.x, self.y, self.w, self.h)
