@@ -12,7 +12,7 @@ class TestFloor(unittest.TestCase):
         '''
         floor = Floor(0, 0, 200, 50, None)
         rect = floor.get_rect()
-        expected_rect = (0, 350, 200, 50)
+        expected_rect = (0, 0, 200, 50)
         self.assertEqual(rect, expected_rect)
 
     def test_set_rect(self):
