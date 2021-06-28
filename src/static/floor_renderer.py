@@ -21,12 +21,13 @@ class FloorRenderer(pygame.sprite.Sprite):
         for i in range(self.floor_nums):
             self.floor_imgs.append(self.floor_img)
 
+        self.height = self.sprite_rect[3]
         self.rects = []
         for i in range(self.floor_nums):
             height = self.sprite_rect[3]
             new_rect = (
                 (i * self.sprite_width),
-                self.game.config.floor_pos,
+                self.game.screen.get_height() - self.height,
                 self.sprite_width,
                 height
             )
