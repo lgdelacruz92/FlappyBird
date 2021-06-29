@@ -13,6 +13,9 @@ class Bird:
         self.config = self.game.config
         self.angle = 0
 
+    def reset(self):
+        self.y = self.game.screen.get_height() // 2
+
     def update(self):
         dt = self.game.clock.get_time()
         self.v += self.g

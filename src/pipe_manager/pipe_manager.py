@@ -16,6 +16,10 @@ class PipeManager:
         self.sprite_rect = self.game.config.pipe_sprite_rect
         self.scale = self.game.screen.get_height() / self.sprite_rect[3]
 
+        self.reset()
+
+    def reset(self):
+        screen_width = self.game.screen.get_width()
         # make rects
         self.paths_rects = []
         for i in range(self.game.config.num_pipes):

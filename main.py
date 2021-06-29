@@ -105,7 +105,8 @@ while run:
                 if GAME.game_manager.status == IDLE:
                     GAME.game_manager.set_status(PLAYING)
                 elif GAME.game_manager.status == GAME_OVER:
-                    bird.y = SCREEN_HEIGHT // 2
+                    bird.reset()
+                    pipe_manager.reset()
                     GAME.game_manager.set_status(PLAYING)
                     print('playing again')
     screen.fill((84, 192, 201))
