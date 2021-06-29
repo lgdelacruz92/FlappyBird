@@ -88,6 +88,8 @@ while run:
     if GAME.game_manager.status == PLAYING:
         bird.add_force(0, config.gravity)
         bird.update()
+    elif GAME.game_manager.status == GAME_OVER:
+        print('Game over')
 
     for event in pygame.event.get():
         # quit game
@@ -102,6 +104,10 @@ while run:
                 # Bird should be floating if game hasn't started yet
                 if GAME.game_manager.status == IDLE:
                     GAME.game_manager.set_status(PLAYING)
+                elif GAME.game_manager.status == GAME_OVER:
+                    bird.y = SCREEN_HEIGHT // 2
+                    GAME.game_manager.set_status(PLAYING)
+                    print('playing again')
     screen.fill((84, 192, 201))
 
     # Background render
@@ -110,6 +116,10 @@ while run:
     # Draw bird
     bird_renderer.draw(bird)
 
+    if GAME.game_manager.status == PLAYING or GAME.game_manager.status == IDLE:
+        floor_manager.update()
+        pipe_manager.update()
+
     # Draw pipe
     pipes_rects = pipe_manager.get_pipes_rects()
     for i, pipe_rect in enumerate(pipes_rects):
@@ -117,10 +127,8 @@ while run:
             pipe_renderer.draw(pipe_rect, flip=False)
         else:
             pipe_renderer.draw(pipe_rect, flip=True)
-    pipe_manager.update()
 
     # Draw floor
-    floor_manager.update()
     floor_renderer.draw()
 
 
