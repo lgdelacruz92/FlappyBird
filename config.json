@@ -1,6 +1,6 @@
 {
     "gravity": 0.1,
-    "force_up": -1.5,
+    "force_up": -2,
     "vlimit": 1,
     "scale": 3,
     "flying_angle": 25,
@@ -12,5 +12,6 @@
     "sprite_floor_width": 168,
     "sprite_floor_height": 55,
     "sprite_background_width": 142,
-    "sprite_background_height": 255
+    "sprite_background_height": 255,
+    "velocity_up_limit": -0.8
 }

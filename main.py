@@ -79,8 +79,8 @@ run = True
 while run:
     GAME.clock.tick(GAME.config.frame_rate)
 
-    if bird.y >= GAME.config.floor_pos - 50:
-        bird.y = GAME.config.floor_pos - 50
+    if bird.y >= floor_manager.get_floor_y() - 50:
+        bird.y = floor_manager.get_floor_y() - 50
         GAME.game_manager.set_status(GAME_OVER)
 
     if GAME.game_manager.status == PLAYING:

@@ -11,6 +11,9 @@ class FloorManager:
             new_rect = (i * orig_rect[2] + first_x, new_floor_y, orig_rect[2], orig_rect[3])
             floor.set_rect(new_rect)
 
+    def get_floor_y(self):
+        return self.floors[0].get_rect()[1]
+
     def update(self):
         '''
         Updates the floors movement

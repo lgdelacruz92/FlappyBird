@@ -11,6 +11,12 @@ class TestConfig(unittest.TestCase):
         config_json = {}
 
 
+        config_json['velocity_up_limit'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
         config_json['sprite_background_height'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)

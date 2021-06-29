@@ -29,11 +29,10 @@ class BirdRenderer(pygame.sprite.Sprite):
         self.ticks = 0
         self.flap = 0
 
-    def load_images(self):
-
-        angle = self.game.config.flying_angle
-        if not self.flying:
-            angle = -self.game.config.flying_angle
+    def load_images(self, bird=None):
+        angle = 0
+        if bird is not None:
+            angle = bird.angle
 
         scale = self.game.config.scale
         # load the bird img
@@ -64,10 +63,8 @@ class BirdRenderer(pygame.sprite.Sprite):
 
     def draw(self, bird):
         if bird.v < 0:
-            self.flying = True
-            self.load_images()
+            self.load_images(bird)
         else:
-            self.flying = False
-            self.load_images()
+            self.load_images(bird)
 
         self.draw_flying(bird)
