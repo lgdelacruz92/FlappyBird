@@ -27,6 +27,7 @@ class PipeManager:
                     self.paths[i][1] - self.paths[i][0]
                 )
             )
+    
 
     def update(self):
         '''
@@ -58,3 +59,24 @@ class PipeManager:
         # Map value
         value = random.randint(int(lower_limit), int(upper_limit))
         return (value, int(value + bird_path * screen_height))
+
+    def get_pipes_rects(self):
+        '''
+        This methods returns the number of rects representing each pipes
+        '''
+        result = []
+        for path_rect in self.paths_rects:
+            # Top pipe
+            x = path_rect[0]
+            y = 0
+            w = path_rect[2]
+            h = path_rect[1]
+            result.append((x, y, w, h))
+
+            # Bottom pipe
+            x = path_rect[0]
+            y = path_rect[1] + path_rect[3]
+            w = path_rect[2]
+            h = self.game.screen.get_height() - (path_rect[1] + path_rect[3])
+            result.append((x, y, w, h))
+        return result
