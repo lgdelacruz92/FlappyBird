@@ -13,5 +13,6 @@
     "sprite_floor_height": 55,
     "sprite_background_width": 142,
     "sprite_background_height": 255,
-    "velocity_up_limit": -0.8
+    "velocity_up_limit": -0.8,
+    "bird_path": 0.17
 }

@@ -18,3 +18,4 @@ class Config:
         self.sprite_background_width = config_json['sprite_background_width']
         self.sprite_background_height = config_json['sprite_background_height']
         self.velocity_up_limit = config_json['velocity_up_limit']
+        self.bird_path = config_json['bird_path']
