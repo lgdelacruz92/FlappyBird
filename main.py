@@ -13,6 +13,7 @@ from src.background.background_renderer import BackgroundRenderer
 
 from src.pipe.pipe import Pipe
 from src.pipe.pipe_renderer import PipeRenderer
+from src.pipe_manager.pipe_manager import PipeManager
 
 from src.floor.floor import Floor
 from src.floor_manager.floor_manager import FloorManager
@@ -73,6 +74,7 @@ floor_renderer = FloorRenderer(floor_manager, GAME)
 # Setup pipes
 pipe = Pipe(SCREEN_WIDTH - 100, SCREEN_HEIGHT/3, 26, 160, GAME)
 pipe_renderer = PipeRenderer(GAME)
+pipe_manager = PipeManager(GAME)
 
 run = True
 
@@ -109,12 +111,18 @@ while run:
     bird_renderer.draw(bird)
 
     # Draw pipe
-    pipe.update()
-    pipe_renderer.draw(pipe)
+    pipes_rects = pipe_manager.get_pipes_rects()
+    for i, pipe_rect in enumerate(pipes_rects):
+        if i % 2 == 1:
+            pipe_renderer.draw(pipe_rect, flip=False)
+        else:
+            pipe_renderer.draw(pipe_rect, flip=True)
+    pipe_manager.update()
 
     # Draw floor
     floor_manager.update()
     floor_renderer.draw()
+
 
     pygame.display.update()
 

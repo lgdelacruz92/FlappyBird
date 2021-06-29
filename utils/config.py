@@ -21,3 +21,4 @@ class Config:
         self.bird_path = config_json['bird_path']
         self.num_pipes = config_json['num_pipes']
         self.pipe_spacing = config_json['pipe_spacing']
+        self.pipe_sprite_rect = config_json['pipe_sprite_rect']
