@@ -14,6 +14,10 @@ class TestPipeManager(unittest.TestCase):
 
         game.screen.get_height.return_value = SCREEN_HEIGHT
         game.config.bird_path = BIRD_PATH
+        game.config.num_pipes = 5
+        game.config.scale = 1
+        game.screen.get_width.return_value = 1
+        game.config.pipe_spacing = 1
 
         pipe_manager = PipeManager(game)
 

@@ -11,6 +11,18 @@ class TestConfig(unittest.TestCase):
         config_json = {}
 
 
+        config_json['pipe_spacing'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
+        config_json['num_pipes'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
         config_json['bird_path'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)

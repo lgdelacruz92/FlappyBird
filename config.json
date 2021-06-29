@@ -14,5 +14,7 @@
     "sprite_background_width": 142,
     "sprite_background_height": 255,
     "velocity_up_limit": -0.8,
-    "bird_path": 0.17
+    "bird_path": 0.17,
+    "num_pipes": 6,
+    "pipe_spacing": 0.20
 }
