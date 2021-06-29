@@ -50,5 +50,5 @@ class TestPipeManager(unittest.TestCase):
 
         sprite_rect = pipe_manager.sprite_rect
         self.assertEqual(pipes_rects[0][0], SCREEN_WIDTH)
-        self.assertEqual(pipes_rects[0][1], 0)
+        self.assertEqual(pipes_rects[0][1], -(SCREEN_HEIGHT - pipe_manager.paths_rects[0][1]))
         self.assertEqual(pipes_rects[0][2], sprite_rect[2] * SCALE)
