@@ -27,7 +27,6 @@ class PipeManager:
                     self.paths[i][1] - self.paths[i][0]
                 )
             )
-    
 
     def update(self):
         '''
@@ -68,15 +67,15 @@ class PipeManager:
         for path_rect in self.paths_rects:
             # Top pipe
             x = path_rect[0]
-            y = 0
+            y = - (self.game.screen.get_height() - path_rect[1])
             w = path_rect[2]
-            h = path_rect[1]
+            h = self.game.screen.get_height()
             result.append((x, y, w, h))
 
             # Bottom pipe
             x = path_rect[0]
             y = path_rect[1] + path_rect[3]
             w = path_rect[2]
-            h = self.game.screen.get_height() - (path_rect[1] + path_rect[3])
+            h = self.game.screen.get_height()
             result.append((x, y, w, h))
         return result

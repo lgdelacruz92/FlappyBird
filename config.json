@@ -7,7 +7,7 @@
     "frame_rate": 30,
     "floor_pos": 1025,
     "background_pos": 770,
-    "floor_rate": 0.05,
+    "floor_rate": 0.10,
     "pipe_velocity": 1,
     "sprite_floor_width": 168,
     "sprite_floor_height": 55,
