@@ -19,5 +19,11 @@
     "pipe_spacing": 0.30,
     "pipe_sprite_rect": [84, 323, 26, 160],
     "score_board_sprite_rect": [3, 259, 113, 57],
-    "score_board_height_percentage": 0.2
+    "score_board_height_percentage": 0.2,
+    "small_nums": {
+
+    },
+    "big_nums": {
+        
+    }
 }
