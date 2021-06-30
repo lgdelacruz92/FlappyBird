@@ -17,6 +17,12 @@ class TestConfig(unittest.TestCase):
 
 
 
+        config_json['current_score_y_offset'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
         config_json['current_score_x_offset'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)

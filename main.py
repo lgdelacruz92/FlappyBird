@@ -24,6 +24,8 @@ from src.static.score_board_renderer import ScoreBoardRenderer
 from src.static.current_score import CurrentScore
 from src.number.number_render_manager import NumberRenderManager
 
+from src.static.score_ticker import ScoreTicker
+
 config = None
 # Get configuration
 with open('config.json', 'r') as config_file:
@@ -87,6 +89,7 @@ score_board_renderer = ScoreBoardRenderer(GAME)
 # current_score
 current_score = CurrentScore(GAME)
 number_render_manager = NumberRenderManager(GAME)
+score_ticker = ScoreTicker()
 
 run = True
 
@@ -118,6 +121,9 @@ while run:
                     bird.reset()
                     pipe_manager.reset()
                     GAME.game_manager.set_status(PLAYING)
+                    score_ticker.reset()
+
+    # screen fill
     screen.fill((84, 192, 201))
 
     # Background render
@@ -141,11 +147,13 @@ while run:
     if GAME.game_manager.status == GAME_OVER:
         score_board_renderer.draw()
 
-    score = "0"
-    score_num = current_score.validate(score)
-    score_rects = current_score.get_rects(len(score))
+        score = score_ticker.get_score_str()
+        score_num = current_score.validate(score)
+        score_rects = current_score.get_rects(len(score))
 
-    number_render_manager.big_nums_draw(score, score_rects)
+        number_render_manager.big_nums_draw(score, score_rects)
+
+    score_ticker.update(bird, pipes_rects)
 
     # Draw floor
     floor_renderer.draw()

@@ -30,3 +30,4 @@ class Config:
         self.small_nums_scale = config_json['small_nums_scale']
         self.current_score_x_offset = config_json['current_score_x_offset']
         self.current_score_y_offset = config_json['current_score_y_offset']
+        self.current_score_y_offset = config_json['current_score_y_offset']
