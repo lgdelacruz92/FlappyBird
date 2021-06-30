@@ -22,3 +22,5 @@ class Config:
         self.num_pipes = config_json['num_pipes']
         self.pipe_spacing = config_json['pipe_spacing']
         self.pipe_sprite_rect = config_json['pipe_sprite_rect']
+        self.score_board_sprite_rect = config_json['score_board_sprite_rect']
+        self.score_board_height_percentage = config_json['score_board_height_percentage']

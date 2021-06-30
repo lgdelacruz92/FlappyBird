@@ -11,6 +11,18 @@ class TestConfig(unittest.TestCase):
         config_json = {}
 
 
+        config_json['score_board_height_percentage'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
+        config_json['score_board_sprite_rect'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
         config_json['pipe_sprite_rect'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)

@@ -19,6 +19,8 @@ from src.floor.floor import Floor
 from src.floor_manager.floor_manager import FloorManager
 from src.floor.floor_renderer import FloorRenderer
 
+from src.static.score_board_renderer import ScoreBoardRenderer
+
 config = None
 # Get configuration
 with open('config.json', 'r') as config_file:
@@ -76,6 +78,9 @@ pipe = Pipe(SCREEN_WIDTH - 100, SCREEN_HEIGHT/3, 26, 160, GAME)
 pipe_renderer = PipeRenderer(GAME)
 pipe_manager = PipeManager(GAME)
 
+# Score board renderer
+score_board_renderer = ScoreBoardRenderer(GAME)
+
 run = True
 
 while run:
@@ -88,8 +93,6 @@ while run:
     if GAME.game_manager.status == PLAYING:
         bird.add_force(0, config.gravity)
         bird.update()
-    elif GAME.game_manager.status == GAME_OVER:
-        print('Game over')
 
     for event in pygame.event.get():
         # quit game
@@ -108,7 +111,6 @@ while run:
                     bird.reset()
                     pipe_manager.reset()
                     GAME.game_manager.set_status(PLAYING)
-                    print('playing again')
     screen.fill((84, 192, 201))
 
     # Background render
@@ -128,6 +130,10 @@ while run:
             pipe_renderer.draw(pipe_rect, flip=False)
         else:
             pipe_renderer.draw(pipe_rect, flip=True)
+
+    if GAME.game_manager.status == GAME_OVER:
+        score_board_renderer.draw()
+
 
     # Draw floor
     floor_renderer.draw()

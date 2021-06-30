@@ -17,5 +17,7 @@
     "bird_path": 0.20,
     "num_pipes": 6,
     "pipe_spacing": 0.30,
-    "pipe_sprite_rect": [84, 323, 26, 160]
+    "pipe_sprite_rect": [84, 323, 26, 160],
+    "score_board_sprite_rect": [3, 259, 113, 57],
+    "score_board_height_percentage": 0.2
 }
