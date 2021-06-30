@@ -1,6 +1,13 @@
 class SmallNumbers:
     def __init__(self, game):
         self.game = game
+        self.imgs = []
+        for i in range(10):
+            img = self.game.spritesheet.image_at(self.get_num(i))
+            self.imgs.append(img)
+
+    def get_imgs(self):
+        return self.imgs
 
     def get_num(self, int_num):
         if int_num == 0:

@@ -11,6 +11,18 @@ class TestConfig(unittest.TestCase):
         config_json = {}
 
 
+        config_json['small_nums_scale'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
+        config_json['big_nums_scale'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
         config_json['big_nums'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)
