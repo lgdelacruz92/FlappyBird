@@ -12,13 +12,16 @@ class CurrentScore:
         big_nums_width = self.game.config.big_nums["zero"][2]
         big_nums_height = self.game.config.big_nums["zero"][3]
 
-        width = int(big_nums_width * (num_height / big_nums_height))
-        x = screen_width // 2
-        x -= width // 2
+        rects = []
+        for i in range(num_rects):
+            width = int(big_nums_width * (height / big_nums_height))
+            x = screen_width // 2 + (i * (width))
+            x -= (width // 2 - self.game.config.current_score_x_offset) 
 
-        y = screen_height // 2
-        y -= height // 2
-        return (x, y, width, height)
+            y = screen_height // 2
+            y -= height // 2 - self.game.config.current_score_y_offset
+            rects.append((x, y, width, height))
+        return rects
 
     def validate(self, str_num):
         '''
@@ -29,3 +32,4 @@ class CurrentScore:
         str_num_2 = str(num)
         if str_num != str_num_2 or num < 0 or num > 999:
             raise ValueError(f'{str_num} is not a valid score. It should only be between 0 - 999 (inclusive)')
+        return num

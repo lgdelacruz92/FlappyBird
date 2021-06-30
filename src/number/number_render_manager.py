@@ -9,11 +9,19 @@ class NumberRenderManager:
         self.big_nums = BigNumbers(game)
 
     def big_nums_draw(self, str_num, rects):
-        num_imgs = self.big_nums.get_imgs(str_num)
+        num_imgs = self.big_nums.get_imgs()
+        imgs = []
+        for i in range(len(str_num)):
+            digit = int(str_num[i])
+            imgs.append(num_imgs[digit])
         for i, rect in enumerate(rects):
-            self.game.screen.blit(num_imgs[i], rect)
+            self.game.screen.blit(imgs[i], rect)
 
     def small_nums_draw(self, str_num, rects):
-        num_imgs = self.small_nums.get_imgs(str_num)
+        num_imgs = self.small_nums.get_imgs()
+        imgs = []
+        for i in range(len(str_num)):
+            digit = int(str_num[i])
+            imgs.append(num_imgs[digit])
         for i, rect in enumerate(rects):
-            self.game.screen.blit(num_imgs[i], rect)
+            self.game.screen.blit(imgs[i], rect)

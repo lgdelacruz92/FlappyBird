@@ -2,8 +2,22 @@ class BigNumbers:
     def __init__(self, game):
         self.game = game
         self.imgs = []
+
+        big_nums_scale = self.game.config.big_nums_scale
+        screen_height = self.game.screen.get_height()
+        height = int(big_nums_scale * screen_height)
+        big_nums_height = self.game.config.big_nums["zero"][3]
+
+        scale = height/big_nums_height
+
         for i in range(10):
-            img = self.game.spritesheet.image_at(self.get_num(i))
+            img = self.game.spritesheet.image_at(self.get_num(i), colorkey=(255, 255, 255))
+            img = self.game.pygame.transform.scale(img,
+                (
+                    int(img.get_width() * scale),
+                    int(img.get_height() * scale)
+                )
+            )
             self.imgs.append(img)
 
     def get_imgs(self):

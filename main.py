@@ -21,6 +21,9 @@ from src.floor.floor_renderer import FloorRenderer
 
 from src.static.score_board_renderer import ScoreBoardRenderer
 
+from src.static.current_score import CurrentScore
+from src.number.number_render_manager import NumberRenderManager
+
 config = None
 # Get configuration
 with open('config.json', 'r') as config_file:
@@ -81,6 +84,10 @@ pipe_manager = PipeManager(GAME)
 # Score board renderer
 score_board_renderer = ScoreBoardRenderer(GAME)
 
+# current_score
+current_score = CurrentScore(GAME)
+number_render_manager = NumberRenderManager(GAME)
+
 run = True
 
 while run:
@@ -134,6 +141,11 @@ while run:
     if GAME.game_manager.status == GAME_OVER:
         score_board_renderer.draw()
 
+    score = "0"
+    score_num = current_score.validate(score)
+    score_rects = current_score.get_rects(len(score))
+
+    number_render_manager.big_nums_draw(score, score_rects)
 
     # Draw floor
     floor_renderer.draw()

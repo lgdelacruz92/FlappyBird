@@ -4,7 +4,7 @@ GAME_OVER = 3
 
 
 class GameManager:
-    def __init__(self, config):
+    def __init__(self):
         self.status = IDLE
 
     def set_status(self, status):

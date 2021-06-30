@@ -44,6 +44,8 @@
         "eight": [320, 184, 11, 17],
         "nine": [334, 184, 11, 17]
     },
-    "big_nums_scale": 0.05,
-    "small_nums_scale": 0.03
+    "big_nums_scale": 0.04,
+    "small_nums_scale": 0.02,
+    "current_score_x_offset": 160,
+    "current_score_y_offset": -22
 }

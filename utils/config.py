@@ -28,3 +28,5 @@ class Config:
         self.big_nums = config_json['big_nums']
         self.big_nums_scale = config_json['big_nums_scale']
         self.small_nums_scale = config_json['small_nums_scale']
+        self.current_score_x_offset = config_json['current_score_x_offset']
+        self.current_score_y_offset = config_json['current_score_y_offset']
