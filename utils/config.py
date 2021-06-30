@@ -24,3 +24,5 @@ class Config:
         self.pipe_sprite_rect = config_json['pipe_sprite_rect']
         self.score_board_sprite_rect = config_json['score_board_sprite_rect']
         self.score_board_height_percentage = config_json['score_board_height_percentage']
+        self.small_nums = config_json['small_nums']
+        self.big_nums = config_json['big_nums']
