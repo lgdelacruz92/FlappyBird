@@ -27,6 +27,8 @@ from src.number.number_render_manager import NumberRenderManager
 from src.static.score_ticker import ScoreTicker
 from src.medal.medal_renderer import MedalRenderer
 
+from src.static.db import BestScoreDB
+
 config = None
 # Get configuration
 with open('config.json', 'r') as config_file:
@@ -93,13 +95,13 @@ number_render_manager = NumberRenderManager(GAME)
 score_ticker = ScoreTicker()
 
 # best score
-best_score = CurrentScore(GAME)
+best_score_ui = CurrentScore(GAME)
 best_score_manager = NumberRenderManager(GAME)
 
 # medal renderer
 medal_renderer = MedalRenderer(score_board_renderer, GAME)
 
-best_score_num = 0
+best_score_db = BestScoreDB()
 
 run = True
 
@@ -163,16 +165,18 @@ while run:
         score_rects = current_score.get_rects(len(score), GAME.config.current_score_x_offset, GAME.config.current_score_y_offset)
         number_render_manager.big_nums_draw(score, score_rects)
 
-        if score_num > best_score_num:
-            best_score_num = score_num
+        if score_num > best_score_db.get_best_score():
+            # update best score in db
+            best_score_db.update_best_score(score_num)
 
         # medal
         medal_renderer.draw_medal(score_num)
 
         # best score
+        best_score_num = best_score_db.get_best_score() # Get it from db
         string_best_score = str(best_score_num)
-        best_score.validate(string_best_score)
-        best_score_rects = best_score.get_rects(len(string_best_score), GAME.config.best_score_x_offset, GAME.config.best_score_y_offset)
+        best_score_ui.validate(string_best_score)
+        best_score_rects = best_score_ui.get_rects(len(string_best_score), GAME.config.best_score_x_offset, GAME.config.best_score_y_offset)
         best_score_manager.big_nums_draw(string_best_score, best_score_rects)
 
     score_ticker.update(bird, pipes_rects)
