@@ -29,6 +29,8 @@ from src.medal.medal_renderer import MedalRenderer
 
 from src.static.db import BestScoreDB
 
+from utils.collide import collide
+
 config = None
 # Get configuration
 with open('config.json', 'r') as config_file:
@@ -108,6 +110,9 @@ run = True
 while run:
     GAME.clock.tick(GAME.config.frame_rate)
 
+    if bird.y < -200:
+        GAME.game_manager.set_status(GAME_OVER)
+
     if bird.y >= floor_manager.get_floor_y() - 50:
         bird.y = floor_manager.get_floor_y() - 50
         GAME.game_manager.set_status(GAME_OVER)
@@ -155,6 +160,15 @@ while run:
             pipe_renderer.draw(pipe_rect, flip=False)
         else:
             pipe_renderer.draw(pipe_rect, flip=True)
+
+    bird_rect = bird_renderer.bird_imgs[0].get_rect()
+    offset_x = 0.25 * bird_rect[2]
+    offset_y = 0.25 * bird_rect[3]
+
+    bird_rect = (bird.x + offset_x, bird.y + offset_y, bird_rect[2] - offset_x * 2, bird_rect[2] - offset_y * 2)
+    for pipe_rect in pipes_rects:
+        if collide(bird_rect, pipe_rect):
+            GAME.game_manager.set_status(GAME_OVER)
 
     if GAME.game_manager.status == GAME_OVER:
         score_board_renderer.draw()
