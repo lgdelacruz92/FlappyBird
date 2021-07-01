@@ -25,6 +25,7 @@ from src.static.current_score import CurrentScore
 from src.number.number_render_manager import NumberRenderManager
 
 from src.static.score_ticker import ScoreTicker
+from src.medal.medal_renderer import MedalRenderer
 
 config = None
 # Get configuration
@@ -39,7 +40,7 @@ pygame.init()
 game_colors = GameColors()
 
 # Globals
-SCREEN_WIDTH = 1800
+SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = int(SCREEN_WIDTH * 0.5625)
 
 # Set screen
@@ -90,6 +91,9 @@ score_board_renderer = ScoreBoardRenderer(GAME)
 current_score = CurrentScore(GAME)
 number_render_manager = NumberRenderManager(GAME)
 score_ticker = ScoreTicker()
+
+# medal renderer
+medal_renderer = MedalRenderer(score_board_renderer, GAME)
 
 run = True
 
@@ -150,6 +154,8 @@ while run:
         score = score_ticker.get_score_str()
         score_num = current_score.validate(score)
         score_rects = current_score.get_rects(len(score))
+
+        medal_renderer.draw_medal(score_num)
 
         number_render_manager.big_nums_draw(score, score_rects)
 

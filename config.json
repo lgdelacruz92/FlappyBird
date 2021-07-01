@@ -2,7 +2,7 @@
     "gravity": 0.1,
     "force_up": -2,
     "vlimit": 1,
-    "scale": 4,
+    "scale": 3,
     "flying_angle": 25,
     "frame_rate": 30,
     "floor_pos": 1025,
@@ -46,6 +46,11 @@
     },
     "big_nums_scale": 0.04,
     "small_nums_scale": 0.02,
-    "current_score_x_offset": 160,
-    "current_score_y_offset": -22
+    "current_score_x_offset": 75,
+    "current_score_y_offset": -16,
+    "bronze_medal_rect": [112, 477, 22, 22],
+    "silver_medal_rect": [112, 453, 22, 22],
+    "gold_medal_rect": [121, 282, 22, 22],
+    "medal_pos_x_offset": -103,
+    "medal_pos_y_offset": -18
 }

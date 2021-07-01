@@ -6,7 +6,7 @@ class ScoreBoardRenderer:
         self.scaler = self.game.config.score_board_height_percentage
         height = self.game.screen.get_height() * self.scaler
         score_board_original_width = self.sprite_rect[2]
-        width = (self.game.screen.get_height() / height) * score_board_original_width
+        width = (height / self.sprite_rect[3]) * score_board_original_width
         self.score_board_img = self.game.pygame.transform.scale(self.score_board_img,
             (int(width), int(height)))
 

@@ -11,6 +11,35 @@ class TestConfig(unittest.TestCase):
         config_json = {}
 
 
+        config_json['medal_pos_y_offset'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
+        config_json['medal_pos_x_offset'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
+        config_json['gold_medal_rect'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
+        config_json['silver_medal_rect'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
+        config_json['bronze_medal_rect'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
         config_json['current_score_y_offset'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)

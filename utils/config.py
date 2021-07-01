@@ -31,3 +31,8 @@ class Config:
         self.current_score_x_offset = config_json['current_score_x_offset']
         self.current_score_y_offset = config_json['current_score_y_offset']
         self.current_score_y_offset = config_json['current_score_y_offset']
+        self.bronze_medal_rect = config_json['bronze_medal_rect']
+        self.silver_medal_rect = config_json['silver_medal_rect']
+        self.gold_medal_rect = config_json['gold_medal_rect']
+        self.medal_pos_x_offset = config_json['medal_pos_x_offset']
+        self.medal_pos_y_offset = config_json['medal_pos_y_offset']
