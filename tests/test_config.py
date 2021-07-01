@@ -11,6 +11,18 @@ class TestConfig(unittest.TestCase):
         config_json = {}
 
 
+        config_json['best_score_y_offset'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
+        config_json['best_score_x_offset'] = 1
+        with self.assertRaises(KeyError):
+            Config(config_json)
+
+
+
         config_json['medal_pos_y_offset'] = 1
         with self.assertRaises(KeyError):
             Config(config_json)

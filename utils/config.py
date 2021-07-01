@@ -36,3 +36,5 @@ class Config:
         self.gold_medal_rect = config_json['gold_medal_rect']
         self.medal_pos_x_offset = config_json['medal_pos_x_offset']
         self.medal_pos_y_offset = config_json['medal_pos_y_offset']
+        self.best_score_x_offset = config_json['best_score_x_offset']
+        self.best_score_y_offset = config_json['best_score_y_offset']

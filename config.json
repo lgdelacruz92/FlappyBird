@@ -52,5 +52,7 @@
     "silver_medal_rect": [112, 453, 22, 22],
     "gold_medal_rect": [121, 282, 22, 22],
     "medal_pos_x_offset": -103,
-    "medal_pos_y_offset": -18
+    "medal_pos_y_offset": -18,
+    "best_score_x_offset": 75,
+    "best_score_y_offset": 31
 }

@@ -172,7 +172,7 @@ while run:
         # best score
         string_best_score = str(best_score_num)
         best_score.validate(string_best_score)
-        best_score_rects = best_score.get_rects(len(string_best_score), 0, 0)
+        best_score_rects = best_score.get_rects(len(string_best_score), GAME.config.best_score_x_offset, GAME.config.best_score_y_offset)
         best_score_manager.big_nums_draw(string_best_score, best_score_rects)
 
     score_ticker.update(bird, pipes_rects)
