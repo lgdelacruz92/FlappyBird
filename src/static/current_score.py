@@ -2,7 +2,7 @@ class CurrentScore:
     def __init__(self, game):
         self.game = game
 
-    def get_rects(self, num_rects):
+    def get_rects(self, num_rects, x_offset, y_offset):
         if num_rects < 1 or num_rects > 3:
             raise ValueError(f'number of rects must only be between 1 - 3 (inclusive)')
         big_nums_scale = self.game.config.big_nums_scale
@@ -16,10 +16,10 @@ class CurrentScore:
         for i in range(num_rects):
             width = int(big_nums_width * (height / big_nums_height))
             x = screen_width // 2 + (i * (width))
-            x -= (width // 2 - self.game.config.current_score_x_offset) 
+            x -= (width // 2 - x_offset) 
 
             y = screen_height // 2
-            y -= height // 2 - self.game.config.current_score_y_offset
+            y -= height // 2 - y_offset
             rects.append((x, y, width, height))
         return rects
 

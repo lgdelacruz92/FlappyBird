@@ -92,8 +92,14 @@ current_score = CurrentScore(GAME)
 number_render_manager = NumberRenderManager(GAME)
 score_ticker = ScoreTicker()
 
+# best score
+best_score = CurrentScore(GAME)
+best_score_manager = NumberRenderManager(GAME)
+
 # medal renderer
 medal_renderer = MedalRenderer(score_board_renderer, GAME)
+
+best_score_num = 0
 
 run = True
 
@@ -151,13 +157,23 @@ while run:
     if GAME.game_manager.status == GAME_OVER:
         score_board_renderer.draw()
 
+        # current score
         score = score_ticker.get_score_str()
         score_num = current_score.validate(score)
-        score_rects = current_score.get_rects(len(score))
+        score_rects = current_score.get_rects(len(score), GAME.config.current_score_x_offset, GAME.config.current_score_y_offset)
+        number_render_manager.big_nums_draw(score, score_rects)
 
+        if score_num > best_score_num:
+            best_score_num = score_num
+
+        # medal
         medal_renderer.draw_medal(score_num)
 
-        number_render_manager.big_nums_draw(score, score_rects)
+        # best score
+        string_best_score = str(best_score_num)
+        best_score.validate(string_best_score)
+        best_score_rects = best_score.get_rects(len(string_best_score), 0, 0)
+        best_score_manager.big_nums_draw(string_best_score, best_score_rects)
 
     score_ticker.update(bird, pipes_rects)
 
